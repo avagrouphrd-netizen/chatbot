@@ -1,4 +1,4 @@
-# WhatsApp Chatbot - Ayres Parallel
+# WhatsApp Chatbot - Ayres Apparel
 
 Bot WhatsApp berbasis `Baileys` + AI (`Ollama API`) untuk membalas chat customer secara otomatis. Dilengkapi fitur kirim gambar katalog, size chart, dan contoh desain.
 
@@ -9,7 +9,7 @@ Bot WhatsApp berbasis `Baileys` + AI (`Ollama API`) untuk membalas chat customer
 ```
 chatbot_wa/
 ├── index.js                    # Entry point
-├── knowledge-base.json         # Knowledge base CS (Ayres Parallel)
+├── knowledge-base.json         # Knowledge base CS (Ayres Apparel)
 ├── .env / .env.example         # Konfigurasi environment
 ├── gambar/
 │   ├── katalog/
@@ -169,7 +169,7 @@ Bot mengecek command rule-based **sebelum** meneruskan ke AI.
 
 ## 9. Knowledge Base
 
-File `knowledge-base.json` berisi informasi CS Ayres Parallel (layanan, harga, produksi, pengiriman, dll).
+File `knowledge-base.json` berisi informasi CS Ayres Apparel (layanan, harga, produksi, pengiriman, dll).
 
 Untuk update konten, edit file tersebut langsung atau gunakan Admin UI (`chatbot_ui/`).
 

@@ -196,7 +196,7 @@ function handleCommand(phone, text) {
       handled: true,
       reply:
         "Perkenalkan, saya *Zexo*, AI asisten CS yang akan membantu kakak ketika CS tidak berada di jam kerja 😊\n\n" +
-        "Halo kak! Selamat datang di Ayres Parallel 👋\n\n" +
+        "Halo kak! Selamat datang di Ayres Apparel 👋\n\n" +
         "Ada yang bisa saya bantu? Mau bikin jersey untuk apa atau butuh info produk dulu?",
     };
   }
