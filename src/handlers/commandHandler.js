@@ -608,7 +608,13 @@ function handleCommand(phone, text) {
       "Ini contoh logo 3D yang bisa ditambahkan pada jersey kak ✨\n\n" +
         "Logo 3D memberikan tampilan lebih premium dan eksklusif dibanding logo printing biasa.\n" +
         "Cocok untuk tim atau instansi yang ingin tampil lebih profesional 🔥\n\n" +
-        "Untuk detail harga logo 3D bisa konfirmasi ke admin ya kak 🙏",
+        "⚠️ *Penting:* Logo 3D *tidak tersedia untuk orderan satuan* ya kak.\n\n" +
+        "Berikut ketentuan logo 3D:\n\n" +
+        "🔹 *Tatami* — Minimal 6 pcs, tambahan Rp 20.000/pcs\n" +
+        "   ✅ Order 12 pcs ke atas: *FREE logo tatami!*\n\n" +
+        "🔹 *Flock* — Minimal 6 pcs, tambahan Rp 25.000/pcs\n\n" +
+        "🔹 *Rubber* — Minimal 30 pcs, tambahan Rp 30.000/pcs\n\n" +
+        "Untuk info lebih lanjut bisa konfirmasi ke admin ya kak 🙏",
       "Maaf kak, contoh gambar logo 3D belum tersedia. Hubungi admin untuk info lebih lanjut ya 🙏",
     );
   }
