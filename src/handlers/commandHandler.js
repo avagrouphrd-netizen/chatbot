@@ -132,7 +132,7 @@ function getKatalogImages(folder, categoryName) {
     path: path.join(folderPath, f),
     caption:
       i === 0
-        ? `Ini katalog *${categoryName}* kak! 🔥\n\nKalau ada yang cocok, langsung kabarin kami ya 😊`
+        ? `Ini katalog *${categoryName}* kak! 🔥\n\nSemua desain katalog kami tersedia dalam versi *lengan pendek* ya kak.\nKalau ada yang cocok, langsung kabarin kami ya 😊`
         : "",
   }));
 }
@@ -399,6 +399,19 @@ function handleCommand(phone, text) {
   ];
 
   if (!isOrderContextGlobal && katalogKeywords.some((k) => lower.includes(k))) {
+    // Jika nama katalog spesifik sudah disebut di pesan yang sama, langsung kirim gambarnya
+    const directKatalogMatch = KATALOG_CATEGORIES.find((cat) =>
+      cat.keywords.some((kw) => lower.includes(kw)),
+    );
+    if (directKatalogMatch) {
+      katalogState.delete(phone);
+      const images = getKatalogImages(directKatalogMatch.folder, directKatalogMatch.name);
+      if (images.length > 0) {
+        return { handled: true, type: "image", images };
+      }
+      return { handled: true, reply: ADMIN_IMAGE_FOLLOWUP_REPLY };
+    }
+
     katalogState.set(phone, "awaiting_katalog");
     return {
       handled: true,
@@ -412,6 +425,23 @@ function handleCommand(phone, text) {
         "Untuk katalog design juga boleh cek di Instagram kami ya kak, disitu lengkap 😊\n" +
         "https://www.instagram.com/ayres.sportswear/",
     };
+  }
+
+  // ── Katalog: direct name mention tanpa state (misal: "cakra vega" langsung) ──
+  const directCatalogRequest = KATALOG_CATEGORIES.find((cat) =>
+    cat.keywords.some((kw) => lower.includes(kw)),
+  );
+  if (
+    directCatalogRequest &&
+    !isOrderContextGlobal &&
+    /(gambar|foto|contoh|lihat|minta|kirim|katalog)/i.test(lower)
+  ) {
+    katalogState.delete(phone);
+    const images = getKatalogImages(directCatalogRequest.folder, directCatalogRequest.name);
+    if (images.length > 0) {
+      return { handled: true, type: "image", images };
+    }
+    return { handled: true, reply: ADMIN_IMAGE_FOLLOWUP_REPLY };
   }
 
   // ── Size Chart Boxy (cek SEBELUM size chart biasa) ───────────────────────────
